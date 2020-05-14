@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>test img clip page</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 100vw;
+      height: 95.5vh;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .wrapper {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      overflow: hidden;
+    }
+
+    .photo-frame {
+      width: 330px;
+      height: 330px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+      border: 2px solid #fff;
+    }
+
+    img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      will-change: transform;
+    }
+  </style>
+</head>
+<body>
+  <input type="file" accept="image/*"/>
+  <div class="box">
+    <div class="photo-frame"></div>
+    <img src="" alt="">
+  </div>
+
+  <script src="../dist/imgClip.js"></script>
+  <script>
+    var imgClip = new ImgClip({
+      uploadEl: document.querySelector('input'),
+      boxEl: document.querySelector('.box'),
+      imgEl: document.querySelector('img'),
+      frameEl: document.querySelector('.photo-frame')
+    }, {
+      imgWidth: '100vw',
+      scaleEnable: true,
+    })
+  </script>
+</body>
+</html>
